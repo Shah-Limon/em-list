@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center mb-8">Welcome to My Website</h1>
+      <form class="max-w-lg mx-auto">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="website-url">
+            Enter a website URL to extract social media links:
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="website-url"
+            type="text"
+            placeholder="https://example.com"
+          />
+        </div>
+        <div class="flex justify-center">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            Extract Social Media Links
+          </button>
+        </div>
+      </form>
+      <div id="social-media-links" class="mt-8">
+        <!-- Social media links will be displayed here -->
+      </div>
+    </div>
+    <script>
+      const button = document.querySelector("button");
+      const input = document.querySelector("input");
+      const socialMediaLinks = document.querySelector("#social-media-links");
+
+      /* https://rapidapi.com/nicholasbudiharsa/api/scape-social-media-links-of-a-website */
+
+      button.addEventListener("click", async () => {
+        try {
+          const url = `https://scape-social-media-links-of-a-website.p.rapidapi.com/social_links?link=${input.value}`;
+          const options = {
+            method: "GET",
+            headers: {
+              "content-type": "application/octet-stream",
+              "X-RapidAPI-Key":
+                "7be2edc43amsh04693265965626bp18a945jsn5c1cd4658d6b",
+              "X-RapidAPI-Host":
+                "scape-social-media-links-of-a-website.p.rapidapi.com",
+            },
+          };
+          const response = await fetch(url, options);
+          const result = await response.json();
+          const socialLinks = result.socials;
+          const facebookLink = socialLinks.facebook
+            ? `Facebook: <a href="${socialLinks.facebook}" target="_blank">${socialLinks.facebook}</a>`
+            : "<p class='text-red-600'>Not found</p>";
+
+          socialMediaLinks.innerHTML = facebookLink;
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    </script>
+  </body>
+</html>
