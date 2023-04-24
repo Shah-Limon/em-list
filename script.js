@@ -6,7 +6,7 @@ function getEmployees() {
   const companyDomain = document.getElementById("company-domain").value;
 
   // The Clearbit API endpoint for company information
-  const endpoint = `https://prospector.clearbit.com/v1/people/search?domain=${companyDomain}&limit=15`;
+  const endpoint = `https://prospector.clearbit.com/v1/people/search?domain=${companyDomain}`;
 
   // Create a new XMLHttpRequest object
   const xhr = new XMLHttpRequest();
