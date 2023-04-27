@@ -1,5 +1,7 @@
 // Your Clearbit API key
-const API_Token = "sk_73654efaa8d73d3573d0a16fa288e84f";
+//sk_06f137a75a6dd7b0fb29127428349e7f
+//sk_73654efaa8d73d3573d0a16fa288e84f
+const API_Token = "sk_06f137a75a6dd7b0fb29127428349e7f";
 
 function getEmployees() {
   // The domain of the company you want to search for
