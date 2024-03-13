@@ -81,7 +81,23 @@
       },
       {
         "player_name": "Soumya Sarkar",
-        "runs": 2611,
+        "runs": 500,
+        "wickets": 12,
+        "highest_run": 88,
+        "highest_wickets": 2,
+        "team_name": "Cumilla Warriors"
+      },
+      {
+        "player_name": "Soumya Sarkar",
+        "runs": 960,
+        "wickets": 12,
+        "highest_run": 88,
+        "highest_wickets": 2,
+        "team_name": "Cumilla Warriors"
+      },
+      {
+        "player_name": "Soumya Sarkar",
+        "runs": 5005,
         "wickets": 12,
         "highest_run": 88,
         "highest_wickets": 2,
